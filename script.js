@@ -1,75 +1,46 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f4f6f9;
-    margin: 0;
-    padding: 0;
-}
+const botonAgregar = document.getElementById("agregar");
+const lista = document.getElementById("listaTareas");
 
-header {
-    background: #005baa;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
+botonAgregar.addEventListener("click", function () {
 
-main {
-    max-width: 900px;
-    margin: 30px auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
+    const titulo = document.getElementById("titulo").value;
+    const descripcion = document.getElementById("descripcion").value;
+    const fecha = document.getElementById("fecha").value;
+    const hora = document.getElementById("hora").value;
 
-section {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,.15);
-}
+    if (titulo.trim() === "") {
+        alert("Ingrese un título para la tarea.");
+        return;
+    }
 
-input,
-textarea,
-button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
+    // Si es la primera tarea, elimina el mensaje inicial
+    if (lista.children.length === 1 &&
+        lista.children[0].textContent === "No hay tareas pendientes.") {
+        lista.innerHTML = "";
+    }
 
-textarea {
-    resize: vertical;
-    min-height: 80px;
-}
+    const tarea = document.createElement("li");
 
-button {
-    background: #005baa;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-}
+    tarea.innerHTML = `
+        <strong>${titulo}</strong><br>
+        ${descripcion}<br><br>
+        📅 ${fecha} ⏰ ${hora}
+        <br><br>
+        <button class="eliminar">Eliminar</button>
+    `;
 
-button:hover {
-    background: #004080;
-}
+    lista.appendChild(tarea);
 
-ul {
-    list-style: none;
-    padding: 0;
-}
+    tarea.querySelector(".eliminar").addEventListener("click", function () {
+        tarea.remove();
 
-li {
-    background: #eef4ff;
-    margin-top: 10px;
-    padding: 10px;
-    border-left: 5px solid #005baa;
-    border-radius: 5px;
-}
+        if (lista.children.length === 0) {
+            lista.innerHTML = "<li>No hay tareas pendientes.</li>";
+        }
+    });
 
-footer {
-    text-align: center;
-    padding: 20px;
-    color: #666;
-}
+    document.getElementById("titulo").value = "";
+    document.getElementById("descripcion").value = "";
+    document.getElementById("fecha").value = "";
+    document.getElementById("hora").value = "";
+});
