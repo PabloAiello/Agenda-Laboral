@@ -1,52 +1,162 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda Laboral - Pablo Aiello</title>
+    <title>Agenda Laboral | Pablo Aiello</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <header>
-        <h1>📅 Agenda Laboral</h1>
-        <h2>Pablo Aiello</h2>
-        <p>Organización de tareas, reuniones y recordatorios.</p>
-    </header>
+<header>
 
-    <main>
+    <h1>📅 Agenda Laboral</h1>
+    <h2>Pablo Aiello</h2>
+    <p>Organizador de tareas, reuniones, vencimientos y recordatorios.</p>
+
+</header>
+
+<main>
+
+    <!-- PANEL SUPERIOR -->
+
+    <section class="dashboard">
+
+        <div class="card">
+            <h2 id="total">0</h2>
+            <p>Tareas Totales</p>
+        </div>
+
+        <div class="card">
+            <h2 id="pendientes">0</h2>
+            <p>Pendientes</p>
+        </div>
+
+        <div class="card">
+            <h2 id="completadas">0</h2>
+            <p>Completadas</p>
+        </div>
+
+        <div class="card">
+            <h2 id="vencidas">0</h2>
+            <p>Vencidas</p>
+        </div>
+
+    </section>
+
+    <!-- COLUMNA IZQUIERDA -->
+
+    <div class="contenedor">
 
         <section class="formulario">
-            <h3>Nueva tarea</h3>
 
-            <input type="text" id="titulo" placeholder="Título de la tarea">
+            <h3>➕ Nueva tarea</h3>
 
-            <textarea id="descripcion" placeholder="Descripción"></textarea>
+            <input
+                type="text"
+                id="titulo"
+                placeholder="Título">
+
+            <textarea
+                id="descripcion"
+                placeholder="Descripción">
+            </textarea>
+
+            <label>Categoría</label>
+
+            <select id="categoria">
+
+                <option>RRHH</option>
+                <option>Depósito</option>
+                <option>Tráfico</option>
+                <option>Cajas</option>
+                <option>Compras</option>
+                <option>Administración</option>
+                <option>Personal</option>
+
+            </select>
+
+            <label>Prioridad</label>
+
+            <select id="prioridad">
+
+                <option value="Alta">🔴 Alta</option>
+                <option value="Media">🟡 Media</option>
+                <option value="Baja">🟢 Baja</option>
+
+            </select>
 
             <label>Fecha</label>
+
             <input type="date" id="fecha">
 
             <label>Hora</label>
+
             <input type="time" id="hora">
 
-            <button id="agregar">➕ Agregar tarea</button>
+            <button id="agregar">
+                ➕ Agregar tarea
+            </button>
+
         </section>
 
-        <section class="agenda">
-            <h3>📋 Próximas tareas</h3>
+        <!-- PANEL ALERTAS -->
 
-            <ul id="listaTareas">
-                <li>No hay tareas pendientes.</li>
-            </ul>
+        <section class="alertas">
+
+            <h3>🔔 Alertas</h3>
+
+            <div id="alertas">
+
+                No existen alertas por el momento.
+
+            </div>
+
         </section>
 
-    </main>
+    </div>
 
-    <footer>
-        <p>Agenda Laboral © 2026 - Pablo Aiello</p>
-    </footer>
+    <!-- COLUMNA DERECHA -->
 
-    <script src="script.js"></script>
+    <section class="agenda">
+
+        <h3>📋 Agenda Laboral</h3>
+
+        <input
+            type="text"
+            id="buscar"
+            placeholder="🔍 Buscar tarea...">
+
+        <br><br>
+
+        <ul id="listaTareas">
+
+            <li>
+
+                <strong>Bienvenido</strong>
+
+                <br><br>
+
+                Aquí aparecerán todas tus tareas.
+
+            </li>
+
+        </ul>
+
+    </section>
+
+</main>
+
+<footer>
+
+    Agenda Laboral © 2026 | Pablo Aiello
+
+</footer>
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
