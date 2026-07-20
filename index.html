@@ -10,9 +10,11 @@
 
 <body>
 
+<!-- LOGIN -->
 <div id="login">
 
     <div class="login-box">
+
         <h1>Agenda Laboral</h1>
 
         <input type="text" id="usuario" placeholder="Usuario">
@@ -27,17 +29,38 @@
 
 </div>
 
+<!-- AGENDA -->
 <div id="contenido" style="display:none;">
 
-    <h1>Agenda Laboral</h1>
+<header>
 
-    <button onclick="cerrarSesion()">Cerrar sesión</button>
+<h1>📅 Agenda Laboral</h1>
 
-    <!-- Acá va todo el contenido de tu agenda -->
+<button onclick="cerrarSesion()">Cerrar sesión</button>
+
+</header>
+
+<div class="formulario">
+
+<input type="text" id="titulo" placeholder="Título">
+
+<textarea id="descripcion" placeholder="Descripción"></textarea>
+
+<input type="date" id="fecha">
+
+<input type="time" id="hora">
+
+<button id="agregar">Agregar tarea</button>
 
 </div>
 
-<script src="app.js"></script>
+<ul id="listaTareas">
+<li>No hay tareas pendientes.</li>
+</ul>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
